@@ -5,7 +5,7 @@
     <br>
     <a href="{{ route('invoices.create') }}" class="btn btn-primary">Create Invoice</a>
     <br><br><br>
-    <table class="table">
+    <table class="table text-center">
         <thead>
             <tr>
                 <th>#</th>
@@ -31,7 +31,7 @@
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
                     </td>
-                    <td><a href="{{ $invoice->file_path }}" target="_blank">PDF</a></td>
+                    <td><a href="{{ $invoice->file_path }}" target="_blank"><button class="btn btn-info">view document</button></a></td>
                 </tr>
             @endforeach
         </tbody>
