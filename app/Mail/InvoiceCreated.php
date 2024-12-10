@@ -17,9 +17,12 @@ class InvoiceCreated extends Mailable{
     }
 
     public function build(){
+
+        $filePath = storage_path("app/{$this->invoice->file_path}");
+        
         return $this->view('emails.invoice_created')
             ->subject('Nouvelle facture créée')
-            ->attach(storage_path('app/invoices/example.pdf'))
+            ->attach($filePath)
             ->with(['invoice' => $this->invoice]);
     }
 }

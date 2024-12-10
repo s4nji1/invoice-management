@@ -18,7 +18,7 @@ class InvoiceController extends Controller
     public function index(){
     
         $invoices = \Cache::remember('invoices', 60, function () {
-            return \App\Models\Invoice::paginate(10);
+            return \App\Models\Invoice::all();
         });
 
         foreach ($invoices as $invoice) {
@@ -54,7 +54,7 @@ class InvoiceController extends Controller
 
         $invoice = Invoice::create($validated);
         
-        // Mail::to('hamzaaitbouhou75@gmail.com')->send(new InvoiceCreated($invoice));
+        Mail::to('admin@example.com')->send(new InvoiceCreated($invoice));
         
         return redirect()->route('invoices.index')->with('success', 'Facture créée avec succès.');
     

@@ -38,5 +38,4 @@
     </table>
     
     <br>
-    {{ $invoices->links() }}
 @endsection
